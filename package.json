@@ -1,0 +1,25 @@
+{
+  "name": "yudis-portfolio",
+  "version": "1.0.0",
+  "description": "yudi's portfolio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "git": "git add . && git commit -m \"msg\""
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13"
+  },
+  "engines": {
+    "node": "10.17.0"
+  },
+  "repository": {},
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "express"
+  ],
+  "author": "yudi kahn"
+}
