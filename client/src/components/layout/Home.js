@@ -2,6 +2,7 @@ import React from 'react';
 import img_me from '../../imgs/me.jpg';
 
 function Home({lang}) {
+    let skills=' C#, .NET, node.js, mongodb, React, Redux ';
     const txt = {
         EN: {
             greeting: (()=>{
@@ -13,8 +14,9 @@ function Home({lang}) {
                 }
             })(),
             about: `Hello & Welcome. my name is Yudi Kahn and I am a full-stack web developer.
-            among my specializations are C#, .NET, node.js, mongodb, React, Redux & more.
-            Hope u find this site helpful.`
+                among my specializations are ${skills} & more.
+                Hope u find this site helpful.`,
+            main2:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,`
         },
         HE:{
             greeting: (()=>{
@@ -25,30 +27,38 @@ function Home({lang}) {
                     default:return '.לילה טוב';
                 }
             })(),
-            about:`שלום וברוכים הבאים . שמי יודי כהן ואני מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+
-                ' C#, .NET, node.js, mongodb, React, Redux '+'ועוד.  מקווה שתמצאו אתר זה מועיל'
+            about:`שלום וברוכים הבאים . שמי יודי כהן ואני מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+skills+
+                'ועוד.  מקווה שתמצאו אתר זה מועיל',
+            main2:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,`
         }
     }
     
     return (<main style={{minHeight:'100vh'}}>
-        <div className="w-100" style={{backgroundColor:'#f5efef', minHeight:'150%',textAlign:'center',position:'relative'}}>
+        <div className="w-100" style={{minHeight:'150%',textAlign:'center',position:'relative'}}>
             <img className="img-me" src={img_me} alt="Yudi Kahn"></img>
             <br></br>
-            <div className="py-4">
+            <div className="py-4 color-main">
                 <h5>{txt[lang.toUpperCase()].greeting}</h5>
-                <p className="px-4">{txt[lang.toUpperCase()].about}</p>               
+                <p className="px-4 mx-auto" style={{width: '90vw',maxWidth: 400, direction: lang==='he'?'rtl':'ltr'}}>
+                    {txt[lang.toUpperCase()].about}
+                </p>               
             </div>
             <br></br>
             <div className="row justify-content-center py-4">
-                <a href="tel:055-999-1015" className="btn btn-dark mr-2">
+                <a href="tel:055-999-1015" className="btn mr-2">
                     <i className="fa fa-phone"></i>
                 </a>
-                <button className="btn btn-dark mx-2"><i className="fa fa-thumbs-up"></i></button>
-                <a href="mailto:yudikahn8@gmail.com" className="btn btn-dark ml-2">
+                <button className="btn mx-2"><i className="fa fa-thumbs-up"></i></button>
+                <a href="mailto:yudikahn8@gmail.com" className="btn ml-2">
                     <i className="fa fa-paper-plane"></i>
                 </a>
             </div>
-          </div>
+        </div>
+        <div className="parralex">
+            <div className="w-100 h-100 bg-main px-3 py-4 text-white" style={{opacity:.5}}>
+                <h4>{txt[lang.toUpperCase()].main2}</h4>
+            </div>
+        </div>
     </main>)
 }
 

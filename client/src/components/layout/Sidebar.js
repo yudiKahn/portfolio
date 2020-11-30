@@ -7,6 +7,11 @@ const Sidebar = ({setLang, lang}) => {
         e.target.classList += ' fa-spin';
         setTimeout(() => e.target.classList.remove('fa-spin'), 3000);
     }
+    const colors=['#343a40','#FF1493','#FF8C00','#20B2AA']
+    const changeColor = e => {
+        document.documentElement.style.setProperty('--mainColor', e.target.style.backgroundColor);
+        document.querySelector('#theme-color').content = e.target.style.backgroundColor;
+    }
 
     return (<Fragment>
         <div className="sidebar-btn" onClick={e=>onBtnClick(e)}>
@@ -22,6 +27,10 @@ const Sidebar = ({setLang, lang}) => {
                     document.body.style.transition = '';
                 }, 3000);
             }}></i>
+            {
+                colors.map((v,i)=><i key={i} className="colors mx-auto my-2" 
+                     style={{backgroundColor:v}} onClick={changeColor}></i>)
+            }
         </div>
     </Fragment>);
 }
