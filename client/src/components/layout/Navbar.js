@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar({lang}) {
 
-    return (<header className="p-4 header">
+    return (<header className="p-4 header" id="header">
         <nav className={`navbar navbar-expand-lg bg-dark py-3 navbar-dark ${lang==='he'?'flip':''}`}>
         <Link className={`navbar-brand txt-gry ${lang==='he'?'flip':''}`} to="">
             {lang==='he'? 'בית' : 'Home'}
@@ -19,7 +19,7 @@ function Navbar({lang}) {
                     </Link>
                 </li>
                 <li className="nav-item">
-                    <Link to="" className="nav-link text-white" id="nav-cert">
+                    <Link to="Certificates" className="nav-link text-white" id="nav-cert">
                         {lang==='he'? 'תעודות' : 'Certificates'}
                     </Link>
                 </li>

@@ -1,12 +1,15 @@
 :root{
-    --mainColor:#343a40;
+    --mainColor:rgb(52, 58, 64);
+    --mainColorTrans: rgb(52, 58, 64, .5);
     --bg: #f5efef;
-    --macbook: url('./imgs/macbook.jpg');
+    --code: url('./imgs/code.jpg');
 }
 
 /*A*/
 /*B*/
-body, html{width: 100vw; height:100vh;
+body, html{
+    scroll-behavior: smooth;
+    width: 100%; min-height:100vh; position: relative;
     margin: 0 !important; padding: 0;
     overflow-x: hidden; background-color: var(--bg);}
 .btn{
@@ -16,6 +19,9 @@ body, html{width: 100vw; height:100vh;
 }
 .bg-main{
     background-color: var(--mainColor) !important;
+}
+.bg-main-trans{
+    background-color: var(--mainColorTrans) !important;
 }
 /*C*/
 .color-main{
@@ -29,6 +35,15 @@ body, html{width: 100vw; height:100vh;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
 }
+.footer-arrow-up{
+    position: relative;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    left: 50%; top: 0;
+    transform: translate(-50%, -50%);
+    background-color: var(--mainColor);
+    text-align: center; cursor: pointer;
+}
 /*G*/
 /*H*/
 .header{ overflow: hidden; position: relative;
@@ -36,7 +51,9 @@ body, html{width: 100vw; height:100vh;
 .header a:hover{
     cursor: pointer;
     text-decoration: none;
-    font-weight: bolder;}
+    font-weight: bolder;
+    transition: all .1s;
+}
 /*I*/
 .img-me{
     height:90vw; width:90vw; max-height:300px;
@@ -45,6 +62,7 @@ body, html{width: 100vw; height:100vh;
 /*J*/
 /*K*/
 /*L*/
+
 /*M*/
 /*N*/
 .navbar{
@@ -56,7 +74,7 @@ body, html{width: 100vw; height:100vh;
 /*P*/
 .parralex{
     width: 100vw; height: 100vh;
-    background-image: var(--macbook);
+    background-image: var(--code);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -66,6 +84,28 @@ body, html{width: 100vw; height:100vh;
 /*R*/
 
 /*S*/
+.spinner{
+    position: fixed;
+    width: 100vw; height: 100vh;
+    top: 0; left: 0;
+    background-color: var(--bg);
+    color: var(--mainColor);
+    z-index: 20;
+}
+.spinner.true{
+    animation: fadeout 4s forwards;
+}
+@keyframes fadeout{
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+.spinner > div:first-child{
+    position: relative;
+    width: 300px; height: 300px;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .sidebar-btn{
     position: fixed;
     width: 60px; height: 60px;
@@ -103,6 +143,14 @@ body, html{width: 100vw; height:100vh;
     width: 40px; height: 40px;
     border-radius: 50%;
     cursor: pointer; border: 2px solid var(--bg);
+}
+
+.skill{
+    position: absolute;
+    width: 100px; height: 100px;
+    background-color: var(--mainColor);
+    border-radius: 50%;
+    border: 3px solid var(--bg);
 }
 /*T*/
 .txt-gry{color: var(--bg) !important;}

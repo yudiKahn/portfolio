@@ -1,5 +1,6 @@
 import React from 'react';
 import img_me from '../../imgs/me.jpg';
+import Carousel from './Carousel';
 
 function Home({lang}) {
     let skills=' C#, .NET, node.js, mongodb, React, Redux ';
@@ -55,9 +56,12 @@ function Home({lang}) {
             </div>
         </div>
         <div className="parralex">
-            <div className="w-100 h-100 bg-main px-3 py-4 text-white" style={{opacity:.5}}>
-                <h4>{txt[lang.toUpperCase()].main2}</h4>
+            <div className="w-100 h-100 bg-main-trans row mx-0" style={{position:'relative'}}>
+                <Carousel imgs={['https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533',"https://source.unsplash.com/EbuaKnSm8Zw/800x533",'https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533',"https://source.unsplash.com/EbuaKnSm8Zw/800x533",'https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533']}/>
             </div>
+        </div>
+        <div className="w-100" style={{minHeight:'100vh'}}>
+
         </div>
     </main>)
 }

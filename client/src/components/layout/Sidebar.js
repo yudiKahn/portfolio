@@ -7,9 +7,10 @@ const Sidebar = ({setLang, lang}) => {
         e.target.classList += ' fa-spin';
         setTimeout(() => e.target.classList.remove('fa-spin'), 3000);
     }
-    const colors=['#343a40','#FF1493','#FF8C00','#20B2AA']
+    const colors=['rgb(52, 58, 64)','rgb(255, 20, 147)','rgb(255, 140, 0)','rgb(32, 178, 170)']
     const changeColor = e => {
         document.documentElement.style.setProperty('--mainColor', e.target.style.backgroundColor);
+        document.documentElement.style.setProperty('--mainColorTrans', e.target.style.backgroundColor.replace(')',', .5)'));
         document.querySelector('#theme-color').content = e.target.style.backgroundColor;
     }
 
