@@ -17,7 +17,6 @@ function Home({lang}) {
             about: `Hello & Welcome. my name is Yudi Kahn and I am a full-stack web developer.
                 among my specializations are ${skills} & more.
                 Hope u find this site helpful.`,
-            main2:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,`
         },
         HE:{
             greeting: (()=>{
@@ -30,11 +29,13 @@ function Home({lang}) {
             })(),
             about:`שלום וברוכים הבאים . שמי יודי כהן ואני מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+skills+
                 'ועוד.  מקווה שתמצאו אתר זה מועיל',
-            main2:`Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,`
         }
     }
     
     return (<main style={{minHeight:'100vh'}}>
+        <style>{`
+            
+        `}</style>
         <div className="w-100" style={{minHeight:'150%',textAlign:'center',position:'relative'}}>
             <img className="img-me" src={img_me} alt="Yudi Kahn"></img>
             <br></br>
@@ -57,7 +58,8 @@ function Home({lang}) {
         </div>
         <div className="parralex">
             <div className="w-100 h-100 bg-main-trans row mx-0" style={{position:'relative'}}>
-                <Carousel imgs={['https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533',"https://source.unsplash.com/EbuaKnSm8Zw/800x533",'https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533',"https://source.unsplash.com/EbuaKnSm8Zw/800x533",'https://source.unsplash.com/7mUXaBBrhoA/800x533','https://source.unsplash.com/bjhrzvzZeq4/800x533']}/>
+                <Carousel imgs={['js','csharp','css3','html5','node.js','react'].map(v=>require(`../../imgs/${v}.png`).default)}
+                    imgStyle={{maxHeight:230}}/>
             </div>
         </div>
         <div className="w-100" style={{minHeight:'100vh'}}>

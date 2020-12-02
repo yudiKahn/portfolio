@@ -1,45 +1,9 @@
-import React, {useState } from 'react'
+import React, {Fragment, useState } from 'react'
 
 function Carousel({imgs, imgStyle}) {
-    const [state, setState] = useState({viewerDistance: 500, itemWidth:400,apothem:482.842712474619,
-        itemSeparation: 80, theta: (2 * 3.141592653589793 / imgs.length), currImg:0});
+    const [state, setState] = useState({viewerDistance: 500, itemWidth:400, apothem:(imgs.length*70.588235),
+        itemSeparation: 80, theta: (2 * Math.PI / imgs.length), currImg:0});
     const {viewerDistance, itemWidth, apothem, itemSeparation, theta, currImg} = state;
-    const [styles, setStyles] = useState({ 
-        carousel:{
-            perspective: viewerDistance,
-            overflow: 'hidden',
-            display: 'grid',
-            placeItems: 'center'
-        },
-        figure: {
-            margin: 0,
-            maxWidth: itemWidth,
-            width:'100vw',
-            transformStyle: 'preserve-3d',
-            transition: 'transform 0.5s',
-            transformOrigin: `50% 50% -${apothem}px`,
-            flex: '0 0 auto'
-        },
-        img: {
-            width: '100%',
-            boxSizing: 'border-box',
-            padding: `0 ${itemSeparation / 2}px`,
-            opacity: 0.9,
-            flex: '0 0 auto'
-        },
-        img_notfirst: {
-            position: 'absolute',
-            left: 0,
-            top: 0,
-            transformOrigin: `50% 50% -${apothem}px`
-        },
-        btn: {
-            flex: '0 0 auto',
-            margin: '0 5px',
-            cursor: 'pointer'
-        }
-    });
-    const {carousel, figure, img, img_notfirst, btn} = styles;
 
     const move = e => {
         if(e.target.tagName.toLowerCase()!=='button')
@@ -61,21 +25,68 @@ function Carousel({imgs, imgStyle}) {
     }
     const t = new Touch();
 
-    return (<div className="w-100 h-100" style={carousel} onTouchStart={t.start} onTouchEnd={e=>moveTouch(t.end(e))}>
-        <figure style={{...figure, transform:`rotateY(${currImg * (-theta)}rad) scale(1)`}}>
+    return (<Fragment>
+    <style>
+        {`
+        .carousel3d{
+            perspective: ${viewerDistance}px;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+        }
+        .carousel3d-fig{
+            margin: 0px;
+            max-width: ${itemWidth}px;
+            width: 100vw;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease 0s;
+            flex: 0 0 auto;
+            transform-origin: 50% 50%;
+            transform: translateZ(-${apothem}px) rotateY(${currImg * (-theta)}rad);
+        }
+        .carousel3d-item{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0px ${itemSeparation / 2}px;
+            opacity: 0.9;
+            flex: 0 0 auto;
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            transform-origin: 50% 50%;
+        }
+        .carousel3d-nav{
+            display: flex;
+            justify-content: center;
+            margin: 20px 0px 0px;
+            flex: 0 0 auto;
+        }
+        .carousel3d-nav .btn{
+            flex: 0 0 auto;
+            margin: 0px 5px;
+            cursor: pointer;
+        }
+        ${imgs.map((v,i)=>`#car-img-${i} {
+            transform: rotateY(${i*theta}rad) translateZ(-${apothem}px) scaleX(-1);
+        } #car-img-${i}:hover{
+            transition:2s ease;
+            transform: rotateY(${i*theta}rad) translateZ(-${apothem}px) scaleX(-1) scale(1.1);
+        }`).join('')}
+        `}
+    </style>
+    <div className="w-100 h-100 carousel3d" onTouchStart={t.start} onTouchEnd={e=>moveTouch(t.end(e))}>
+        <figure className="carousel3d-fig">
         {
-            imgs.map((imgSrc,i)=>{
-                let rad = (i)*theta;
-                return(<img alt="stam" key={i} src={imgSrc}
-                style={{...img, ...img_notfirst, ...imgStyle, transform:`rotateY(${rad}rad)`}}/>);
-            })
+            imgs.map((imgSrc,i)=>(<img alt="stam" id={`car-img-${i}`} key={i} src={imgSrc} className="carousel3d-item"
+                style={{...imgStyle}}/>))
         }
         </figure>
-        <nav className="txt-gry" style={{display: 'flex',justifyContent: 'center',margin: '20px 0 0',flex: '0 0 auto'}} onClick={move}>
-            <button className="btn btn-dark fa fa-caret-left px-3" id="prev" style={btn}></button>
-            <button className="btn btn-dark fa fa-caret-right px-3" id="next" style={btn}></button>
+        <nav className="txt-gry carousel3d-nav" onClick={move}>
+            <button className="btn btn-dark fa fa-caret-left px-3" id="prev"></button>
+            <button className="btn btn-dark fa fa-caret-right px-3" id="next"></button>
         </nav>
-    </div>)
+    </div>
+    </Fragment>)
 }
 
 export default Carousel;

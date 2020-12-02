@@ -7,6 +7,7 @@ import Home from './components/layout/Home';
 import Sidebar from './components/layout/Sidebar';
 import Certificates from './components/layout/Certificates';
 import Spinner from './components/layout/Spinner';
+import Projects from './components/layout/Projects';
 
 function App() {
   const [lang, setLang] = useState('he');
@@ -23,6 +24,7 @@ function App() {
       <Route path="/" exact render={()=><Home lang={lang}/>}/>
       <Switch>
           <Route path="/Certificates" exact render={()=><Certificates/>}/>
+          <Route path="/Projects" exact render={()=><Projects lang={lang}/>}/>
       </Switch>
       <Footer/>
   </Router>);
