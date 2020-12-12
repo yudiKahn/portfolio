@@ -8,6 +8,7 @@ import Sidebar from './components/layout/Sidebar';
 import Certificates from './components/layout/Certificates';
 import Spinner from './components/layout/Spinner';
 import Projects from './components/layout/Projects';
+import Games from './components/layout/Games';
 
 function App() {
   const [lang, setLang] = useState('he');
@@ -18,13 +19,14 @@ function App() {
   }, [ready]);
   
   return (<Router>
-      <Spinner ready={ready}/>
+      {/*<Spinner ready={ready}/> */}
       <Navbar lang={lang}/>
       <Sidebar setLang={setLang} lang={lang}/>
       <Route path="/" exact render={()=><Home lang={lang}/>}/>
       <Switch>
           <Route path="/Certificates" exact render={()=><Certificates/>}/>
           <Route path="/Projects" exact render={()=><Projects lang={lang}/>}/>
+          <Route path="/Games" exact component={Games}/>
       </Switch>
       <Footer/>
   </Router>);

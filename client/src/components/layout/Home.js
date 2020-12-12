@@ -33,9 +33,6 @@ function Home({lang}) {
     }
     
     return (<main style={{minHeight:'100vh'}}>
-        <style>{`
-            
-        `}</style>
         <div className="w-100" style={{minHeight:'150%',textAlign:'center',position:'relative'}}>
             <img className="img-me" src={img_me} alt="Yudi Kahn"></img>
             <br></br>
