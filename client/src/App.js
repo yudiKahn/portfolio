@@ -9,6 +9,7 @@ import Certificates from './components/layout/Certificates';
 import Spinner from './components/layout/Spinner';
 import Projects from './components/layout/Projects';
 import Games from './components/layout/Games';
+import Notebook from './components/layout/Notebook';
 
 function App() {
   const [lang, setLang] = useState('he');
@@ -27,6 +28,7 @@ function App() {
           <Route path="/Certificates" exact render={()=><Certificates/>}/>
           <Route path="/Projects" exact render={()=><Projects lang={lang}/>}/>
           <Route path="/Games" exact component={Games}/>
+          <Route path="/Notebook" exact component={Notebook}/>
       </Switch>
       <Footer/>
   </Router>);

@@ -5,16 +5,6 @@ function Carousel({imgs, imgStyle}) {
         itemSeparation: 80, theta: (2 * Math.PI / imgs.length), currImg:0});
     const {viewerDistance, itemWidth, apothem, itemSeparation, theta, currImg} = state;
 
-    const move = e => {
-        if(e.target.tagName.toLowerCase()!=='button')
-            return;
-        if(e.target.id === 'prev'){
-            setState({...state, currImg: currImg-1});
-        }
-        else{
-            setState({...state, currImg: currImg+1});
-        }
-    }
     const moveTouch = (dir) => {
         if(dir.toLowerCase()==='right'){
             setState({...state, currImg: currImg-1});
@@ -81,9 +71,11 @@ function Carousel({imgs, imgStyle}) {
                 style={{...imgStyle}}/>))
         }
         </figure>
-        <nav className="txt-gry carousel3d-nav" onClick={move}>
-            <button className="btn btn-dark fa fa-caret-left px-3" id="prev"></button>
-            <button className="btn btn-dark fa fa-caret-right px-3" id="next"></button>
+        <nav className="txt-gry carousel3d-nav">
+            <button className="btn btn-dark fa fa-caret-left px-3" id="prev" 
+                onClick={()=>setState({...state, currImg: currImg-1})}></button>
+            <button className="btn btn-dark fa fa-caret-right px-3" id="next"
+                onClick={()=>setState({...state, currImg: currImg+1})}></button>
         </nav>
     </div>
     </Fragment>)

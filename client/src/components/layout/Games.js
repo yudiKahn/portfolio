@@ -8,8 +8,9 @@ const gameJSX = (title,src) =>
 function Games() {
     const [selectedGame, setSelectedGame] = useState(null);
     const gamesNames = [
-        {title:'Star Wars',txt:'compatible with computer only, Made with jQuery.', src:"PoGGaaw"},
-        {title:'TicTacToe',txt:'A Simple Tic Tac Toe Game With option of playing against AI.',src:"jOMVVgB"}
+        {title:'Star Wars',txt:'Compatible with computer only. Made with jQuery.', src:"PoGGaaw"},
+        {title:'TicTacToe',txt:'A simple Tic Tac Toe game with option of playing against AI.',src:"jOMVVgB"},
+        {title:'ConnectFour',txt:'A classic 4 in a row game. Vanilla js',src:"ExgZgNq"}
     ];
 
     return (<div style={{width:'100%',minHeight:'100vh'}} className="container py-3">
@@ -30,7 +31,7 @@ function Games() {
         {
             gamesNames.map((val, i)=>(<div key={i} className="card mx-1 my-3 col" style={{maxWidth:'18rem',minWidth:'18rem'}}>
                 <div className="card-body" style={{display:'grid',placeContent:'center'}}>
-                    <h5 className="card-title" style={{textTransform:'uppercase'}}>{val.title}</h5>
+                    <h5 className="card-title">{val.title}</h5>
                     <p className="card-text">{val.txt}</p>
                     <button className="btn btn-primary" onClick={()=>setSelectedGame(gameJSX(val.title, val.src))}>Play</button>
                 </div>

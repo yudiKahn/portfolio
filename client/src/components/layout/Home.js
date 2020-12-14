@@ -1,6 +1,7 @@
 import React from 'react';
 import img_me from '../../imgs/me.jpg';
 import Carousel from './Carousel';
+import {Link} from 'react-router-dom';
 
 function Home({lang}) {
     let skills=' C#, .NET, node.js, mongodb, React, Redux ';
@@ -8,26 +9,25 @@ function Home({lang}) {
         EN: {
             greeting: (()=>{
                 switch(getGreetingType()){
-                    case 1: return 'Good Morning.';
-                    case 2: return 'Good Afternoon.';
-                    case 3: return 'Good Evening.';
-                    default:return 'Good Night.';
+                    case 1: return 'Good Morning,';
+                    case 2: return 'Good Afternoon,';
+                    case 3: return 'Good Evening,';
+                    default:return 'Good Night,';
                 }
             })(),
-            about: `Hello & Welcome. my name is Yudi Kahn and I am a full-stack web developer.
-                among my specializations are ${skills} & more.
-                Hope u find this site helpful.`,
+            about: `My name is Yudi Kahn, a full-stack web developer.
+                among my specializations are ${skills} & more.`,
         },
         HE:{
             greeting: (()=>{
                 switch(getGreetingType()){
-                    case 1: return '.בוקר טוב';
-                    case 2: return '.צהריים טובים';
-                    case 3: return '.ערב טוב';
-                    default:return '.לילה טוב';
+                    case 1: return ',בוקר טוב';
+                    case 2: return ',צהריים טובים';
+                    case 3: return ',ערב טוב';
+                    default:return ',לילה טוב';
                 }
             })(),
-            about:`שלום וברוכים הבאים . שמי יודי כהן ואני מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+skills+
+            about:`שמי יודי כהן, מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+skills+
                 'ועוד.  מקווה שתמצאו אתר זה מועיל',
         }
     }
@@ -59,8 +59,19 @@ function Home({lang}) {
                     imgStyle={{maxHeight:230}}/>
             </div>
         </div>
-        <div className="w-100" style={{minHeight:'100vh'}}>
-
+        <div className="w-100" style={{minHeight:'100vh',display:'grid',placeContent:'center'}}>
+            <Link to="/Notebook" style={{textDecoration:'none'}}>
+            <ul className="notebook-ul">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li><p className="m-0 anim">Notebook...</p></li>
+                <li><p className="m-0 anim" style={{width:0,animationDelay:'3s'}}>Click me</p></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            </Link>
         </div>
     </main>)
 }
