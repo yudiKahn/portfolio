@@ -3,7 +3,7 @@
     --mainColorTrans: rgb(52, 58, 64, .5);
     --bg: #f5efef;
     --code: url('./imgs/code.jpg');
-    --space: url('https://storywarren.com/wp-content/uploads/2016/09/space-1.jpg')
+    --space: url('https://storywarren.com/wp-content/uploads/2016/09/space-1.jpg');
 }
 
 /*A*/
@@ -12,7 +12,11 @@ body, html{
     scroll-behavior: smooth;
     width: 100%; min-height:100vh; position: relative;
     margin: 0 !important; padding: 0;
-    overflow-x: hidden; background-color: var(--bg);}
+    overflow-x: hidden; background-color: var(--bg);
+}
+::-webkit-scrollbar-thumb:hover {
+    background:var(--mainColor); 
+}
 .btn{
     background-color: var(--mainColor) !important;
     border-color: var(--mainColor) !important;
@@ -23,6 +27,22 @@ body, html{
 }
 .bg-main-trans{
     background-color: var(--mainColorTrans) !important;
+}
+.btn > .fa.fa-heart.hide{
+    position: absolute;
+    left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    z-index:-100;
+}
+.btn > .fa.fa-heart:not(.hide){
+    color:red;
+    position: absolute;
+    left: 50%; top: 50%;
+    animation: floatLove 3s forwards;
+}
+@keyframes floatLove{
+    0% {transform: translate(-50%, -50%); opacity: 1;}
+    100% {transform: translate(200%, -400%); opacity: 0;}
 }
 /*C*/
 .color-main{
@@ -268,6 +288,11 @@ body, html{
     opacity: 0; text-align: center;
 }
 /*Q*/
+.quote{
+    font-size: 50px;
+    max-width: 600px;
+    text-shadow: 0px 2px 3px var(--mainColor);
+}
 /*R*/
 
 /*S*/
@@ -369,5 +394,12 @@ body, html{
 @media only screen and (max-width: 600px){
     .notebook-ul li > p {
          font-size: 15px !important;
+    }
+}
+
+@media only screen and (max-width: 900px){
+    .quote{
+        font-size: 30px !important;
+        padding:10px;
     }
 }

@@ -9,7 +9,7 @@ const Sidebar = ({setLang, lang}) => {
         e.target.classList += ' fa-spin';
         setTimeout(() => e.target.classList.remove('fa-spin'), 3000);
     }
-    const colors=['rgb(52, 58, 64)','rgb(255, 20, 147)','rgb(255, 140, 0)','rgb(32, 178, 170)']
+    const colors=['rgb(52, 58, 64)','rgb(239,141,156)','rgb(255, 140, 0)','rgb(32, 178, 170)']
     const changeColor = e => {
         document.documentElement.style.setProperty('--mainColor', e.target.style.backgroundColor);
         document.documentElement.style.setProperty('--mainColorTrans', e.target.style.backgroundColor.replace(')',', .5)'));
@@ -30,12 +30,6 @@ const Sidebar = ({setLang, lang}) => {
                     document.body.style.transition = '';
                 }, 3000);
             }}></i>
-            {/* <div className="spaceship mx-auto" onClick={e=>{
-                if(Array.from(e.target.classList).indexOf('shoot') < 0){
-                    e.target.classList+=' shoot';
-                    setTimeout(()=>e.target.classList.remove('shoot'),1000);
-                }
-            }}></div> */}
             {
                 colors.map((v,i)=><i key={i} className="colors mx-auto my-2" 
                      style={{backgroundColor:v}} onClick={changeColor}></i>)
