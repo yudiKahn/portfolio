@@ -20,7 +20,7 @@ function App() {
   }, [ready]);
   
   return (<Router>
-      {/*<Spinner ready={ready}/> */}
+      <Spinner ready={ready}/>
       <Navbar lang={lang}/>
       <Sidebar setLang={setLang} lang={lang}/>
       <Route path="/" exact render={()=><Home lang={lang}/>}/>

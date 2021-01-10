@@ -1,36 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import img_me from '../../imgs/me.jpg';
 import Carousel from './Carousel';
-//import {Link} from 'react-router-dom';
+import text from '../../text.json';
 
 function Home({lang}) {
-    let skills=' C#, .NET, node.js, mongodb, React, Redux ';
-    const txt = {
-        EN: {
-            greeting: (()=>{
-                switch(getGreetingType()){
-                    case 1: return 'Good Morning,';
-                    case 2: return 'Good Afternoon,';
-                    case 3: return 'Good Evening,';
-                    default:return 'Good Night,';
-                }
-            })(),
-            about: `My name is Yudi Kahn, a full-stack web developer.
-                among my specializations are ${skills} & more.`,
-        },
-        HE:{
-            greeting: (()=>{
-                switch(getGreetingType()){
-                    case 1: return ',בוקר טוב';
-                    case 2: return ',צהריים טובים';
-                    case 3: return ',ערב טוב';
-                    default:return ',לילה טוב';
-                }
-            })(),
-            about:`שמי יודי כהן, מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם`+skills+
-                'ועוד.  מקווה שתמצאו אתר זה מועיל',
-        }
-    }
     
     return (<main style={{minHeight:'100vh'}}>
         <div className="w-100" style={{minHeight:'150%',textAlign:'center',position:'relative'}}>
@@ -53,9 +26,9 @@ function Home({lang}) {
             }}></img>
             <br/>
             <div className="py-4 color-main">
-                <h5>{txt[lang.toUpperCase()].greeting}</h5>
+                <h5>{text[lang]['greeting'][getGreetingType()]}</h5>
                 <p className="px-4 mx-auto" style={{width: '90vw',maxWidth: 400, direction: lang==='he'?'rtl':'ltr'}}>
-                    {txt[lang.toUpperCase()].about}
+                    {text[lang]['about']}
                 </p>               
             </div>
             <br/>
@@ -94,10 +67,10 @@ export default Home;
 
 function getGreetingType(){
     let now = new Date().getHours();
-    if(now > 4 && now< 12) return 1;
-    if(now >=12&& now <18) return 2;
-    if(now >=18&& now <=23) return 3;
-    else return 4;
+    if(now > 4 && now< 12) return 0;
+    if(now >=12&& now <18) return 1;
+    if(now >=18&& now <=23) return 2;
+    else return 3;
 }
 
 // function Notebook(){

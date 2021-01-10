@@ -177,7 +177,51 @@ body, html{
     border-radius:10px; box-shadow: 0 4px 2px -2px grey;
     background-color: var(--mainColor) !important;
 }
-
+.navbar-toggler {
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+    width: 3em;
+    border: none; outline: none !important;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+  }
+  .navbar-toggler:after, .navbar-toggler:before, .navbar-toggler span {
+    display: block;
+    transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    content: '';
+    margin: 7px 0;
+    height: 3px;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    background-color: var(--bg);
+  }
+  
+  .navbar-toggler.white:after, .navbar-toggler.white:before, .navbar-toggler span.white{
+    background-color: white;
+  }
+  
+  .navbar-toggler.click:before {
+    transform: translateY(9px) rotate(135deg);
+    -webkit-transform: translateY(9px) rotate(135deg);
+    -moz-transform: translateY(9px) rotate(135deg);
+  }
+  .navbar-toggler.click span {
+    transform: scale(0);
+    -moz-transform: scale(0);
+    -webkit-transform: scale(0);
+  }
+  .navbar-toggler.click:after {
+    transform: translateY(-12px) rotate(-135deg);
+    -moz-transform: translateY(-12px) rotate(-135deg);
+    -webkit-transform: translateY(-12px) rotate(-135deg);
+  }
 .notebook-ul {
     color: #555;
     font-size: 22px;
