@@ -3,6 +3,7 @@
         "navbar":["Home","Projects","Certificates"],
         "greeting":["Good morning","Good afternoon","Good evening","Good night"],
         "about":"My name is Yudi Kahn, a full-stack web developer. among my specializations are C#, .NET, node.js, mongodb, React, Redux & more.",
+        "about2":"Looking for my first job. A place where i can contribute and develop",
         "games":{
             
         }
@@ -11,6 +12,7 @@
         "navbar":["בית","פרויקטים","תעודות"],
         "greeting":["בוקר טוב","צהריים טובים","ערב טוב","לילה טוב"],
         "about":"שמי יודי כהן, מפתח ווב מקצה לקצה. בין ההתמחויות שלי ישנם C#, .NET, node.js, mongodb, React, Redux ועוד.  מקווה שתמצאו אתר זה מועיל",
+        "about2":"מחפש את העבודה הראשונה שלי בתחום. מקום בו אוכל לתרום ול(הת)פתח",
         "games":{
 
         }

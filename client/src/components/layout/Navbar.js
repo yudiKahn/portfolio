@@ -10,8 +10,8 @@ function Navbar({lang}) {
             {text[lang]['navbar'][0]}
         </Link>
         <button onClick={e => {
-            let btn = e.nativeEvent.path.find(el=>Array.from(el.classList).indexOf('navbar-toggler')>-1);
-            Array.from(btn.classList).indexOf('click') < 0 ? btn.classList+=' click' : btn.classList.remove('click');
+            let btn = e.nativeEvent.path.find(el=>el.classList.contains('navbar-toggler'));
+            btn.classList.contains('click') ? btn.classList.remove('click') : btn.classList.add('click');
         }} className="navbar-toggler" data-toggle="collapse" data-target="#nav-coll" aria-controls="nav-coll" aria-expanded="false" aria-label="Toggle navigation">
             <span></span>
         </button> 
@@ -28,6 +28,17 @@ function Navbar({lang}) {
                     </Link>
                 </li>
             </ul>
+            <div style={{transform:`scaleX(${lang==='he'?'-':''}1)`}}>
+                <a href="https://www.linkedin.com/in/yudi-kahn-1873291ab/" target="_blank" rel="noreferrer">
+                    <i className="fa fa-linkedin text-white"></i>
+                </a>&nbsp;
+                <a href="https://codepen.io/yudiK" target="_blank" rel="noreferrer">
+                    <i className="fa fa-codepen text-white"></i>
+                </a>&nbsp;
+                <a href="https://github.com/yudiKahn" target="_blank" rel="noreferrer">
+                    <i className="fa fa-github text-white"></i>
+                </a>
+            </div>
         </div>
         </nav>
     </header>)

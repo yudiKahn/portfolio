@@ -27,9 +27,12 @@ function Home({lang}) {
             <br/>
             <div className="py-4 color-main">
                 <h5>{text[lang]['greeting'][getGreetingType()]}</h5>
-                <p className="px-4 mx-auto" style={{width: '90vw',maxWidth: 400, direction: lang==='he'?'rtl':'ltr'}}>
+                <p className="px-4 mx-auto my-0" style={{width: '90vw',maxWidth: 400, direction: lang==='he'?'rtl':'ltr'}}>
                     {text[lang]['about']}
-                </p>               
+                </p>    
+                <p className="px-4 mx-auto" style={{width: '90vw',maxWidth: 400, direction: lang==='he'?'rtl':'ltr'}}>
+                    {text[lang]['about2']} !
+                </p>           
             </div>
             <br/>
             <div className="row justify-content-center py-4">
