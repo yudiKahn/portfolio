@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import img_me from '../../imgs/me.jpg';
 import Carousel from './Carousel';
 import text from '../../text.json';
+import img1 from '../../imgs/js.png'
 
 function Home({lang}) {
     
